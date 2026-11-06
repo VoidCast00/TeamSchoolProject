@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bmf78bkynhn7t"]
+
+[ext_resource type="Script" uid="uid://cosvolw7c1dwf" path="res://Entities/Player/player.gd" id="1_mv1ah"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aygq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3aygq"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1761557711]
+collision_mask = 6
+script = ExtResource("1_mv1ah")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=427009850]
+shape = SubResource("CapsuleShape3D_3aygq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=371038605]
+mesh = SubResource("CapsuleMesh_3aygq")
+
+[node name="Neck" type="Node3D" parent="." unique_id=1313657557]
+
+[node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1543475913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8380749, -0.12944126)
+fov = 74.96162
