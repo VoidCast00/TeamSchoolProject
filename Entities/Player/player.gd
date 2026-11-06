@@ -1,17 +1,24 @@
 extends CharacterBody3D
 
 @onready var neck: Node3D = $Neck
-@export var MOUSE_SENS:float = 0.01
+@export var SENS:float = 0.15
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseMotion):
-		var mouse_motion:Vector2 = event.relative
-		print(mouse_motion)
-		rotate_y(-(mouse_motion.x * MOUSE_SENS))
-		neck.rotate_x(-(mouse_motion.y * MOUSE_SENS))
-
+		var mouse_motion:Vector2 = event.screen_relative
+		var d := SENS * 0.6 + 0.2
+		var sens := deg_to_rad(d * d * d * 8.0 * 0.15)
+		rotate_y(-(mouse_motion.x * sens))
+		neck.rotate_x(-(mouse_motion.y * sens))
+		neck.rotation.x = clamp(neck.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
