@@ -4,17 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://c4qiva2hqxqvh" path="res://Entities/Maze/maze.tscn" id="3_2vbg6"]
 [ext_resource type="PackedScene" uid="uid://bmf78bkynhn7t" path="res://Entities/Player/player.tscn" id="3_pnp1i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f5b4j"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2vbg6"]
+ground_horizon_color = Color(0.078419976, 0.080932565, 0.085963584, 1)
 
 [sub_resource type="Sky" id="Sky_2vbg6"]
-sky_material = SubResource("ProceduralSkyMaterial_f5b4j")
+sky_material = SubResource("ProceduralSkyMaterial_2vbg6")
+process_mode = 2
 
 [sub_resource type="Environment" id="Environment_pnp1i"]
 background_mode = 2
 sky = SubResource("Sky_2vbg6")
+reflected_light_source = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.13417646, 0.14866495, 0.17351335, 1)
+fog_density = 0.1028
+volumetric_fog_enabled = true
 
 [node name="Game" type="Node3D" unique_id=1074895714]
 
@@ -22,7 +27,9 @@ glow_enabled = true
 environment = SubResource("Environment_pnp1i")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=963856687]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 20.816235, 0)
+light_color = Color(0.3180199, 0.31801975, 0.31801975, 1)
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="GameManager" type="Node" parent="." unique_id=500077631]
@@ -31,4 +38,4 @@ script = ExtResource("2_f5b4j")
 [node name="Maze" parent="." unique_id=1304220717 instance=ExtResource("3_2vbg6")]
 
 [node name="Player" parent="." unique_id=1761557711 instance=ExtResource("3_pnp1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.014926, 0)
