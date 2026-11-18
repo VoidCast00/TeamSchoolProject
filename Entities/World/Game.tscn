@@ -1,36 +1,14 @@
 [gd_scene format=3 uid="uid://cluxsx1ap4rmu"]
 
+[ext_resource type="Environment" uid="uid://b6cjf51anpj3t" path="res://enviroment2.tres" id="1_pnp1i"]
 [ext_resource type="Script" uid="uid://hw14pc08mjki" path="res://Entities/World/game_manager.gd" id="2_f5b4j"]
 [ext_resource type="PackedScene" uid="uid://c4qiva2hqxqvh" path="res://Entities/Maze/maze.tscn" id="3_2vbg6"]
 [ext_resource type="PackedScene" uid="uid://bmf78bkynhn7t" path="res://Entities/Player/player.tscn" id="3_pnp1i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2vbg6"]
-ground_horizon_color = Color(0.078419976, 0.080932565, 0.085963584, 1)
-
-[sub_resource type="Sky" id="Sky_2vbg6"]
-sky_material = SubResource("ProceduralSkyMaterial_2vbg6")
-process_mode = 2
-
-[sub_resource type="Environment" id="Environment_pnp1i"]
-background_mode = 2
-sky = SubResource("Sky_2vbg6")
-reflected_light_source = 2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.13417646, 0.14866495, 0.17351335, 1)
-fog_density = 0.1028
-volumetric_fog_enabled = true
-
 [node name="Game" type="Node3D" unique_id=1074895714]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1477934039]
-environment = SubResource("Environment_pnp1i")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=963856687]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 20.816235, 0)
-light_color = Color(0.3180199, 0.31801975, 0.31801975, 1)
-light_bake_mode = 1
-shadow_enabled = true
+environment = ExtResource("1_pnp1i")
 
 [node name="GameManager" type="Node" parent="." unique_id=500077631]
 script = ExtResource("2_f5b4j")

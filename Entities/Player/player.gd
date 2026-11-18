@@ -38,6 +38,7 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-(mouse_motion.x * sens))
 		neck.rotate_x(-(mouse_motion.y * sens))
 		neck.rotation.x = clamp(neck.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
 
 
 func _physics_process(delta: float) -> void:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmf78bkynhn7t"]
 
 [ext_resource type="Script" uid="uid://cosvolw7c1dwf" path="res://Entities/Player/player.gd" id="1_mv1ah"]
+[ext_resource type="Script" uid="uid://orr8o44e88xw" path="res://Entities/Player/camera.gd" id="2_3uyv8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aygq"]
 
@@ -21,3 +22,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69191694, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1543475913]
 fov = 100.0
+
+[node name="Flashlight" type="Node3D" parent="Neck/Camera3D" unique_id=1290756780]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera3D/Flashlight" unique_id=768963645 node_paths=PackedStringArray("spot_light_3d")]
+light_color = Color(0.922576, 0.9082313, 0.8642909, 1)
+light_energy = 4.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.1
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+spot_range = 20.0
+spot_attenuation = 0.5
+spot_angle = 55.0
+spot_angle_attenuation = 4.0
+script = ExtResource("2_3uyv8")
+spot_light_3d = NodePath(".")
