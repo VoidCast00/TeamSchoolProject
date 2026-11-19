@@ -1,14 +1,56 @@
 [gd_scene format=3 uid="uid://cluxsx1ap4rmu"]
 
-[ext_resource type="Environment" uid="uid://b6cjf51anpj3t" path="res://enviroment2.tres" id="1_pnp1i"]
+[ext_resource type="Texture2D" uid="uid://cjpdlwme0p2ht" path="res://panorama_image (2).png" id="1_7n45s"]
+[ext_resource type="Script" uid="uid://dk0mdv66ebcoq" path="res://Entities/World/world_environment.gd" id="2_7n45s"]
 [ext_resource type="Script" uid="uid://hw14pc08mjki" path="res://Entities/World/game_manager.gd" id="2_f5b4j"]
 [ext_resource type="PackedScene" uid="uid://c4qiva2hqxqvh" path="res://Entities/Maze/maze.tscn" id="3_2vbg6"]
 [ext_resource type="PackedScene" uid="uid://bmf78bkynhn7t" path="res://Entities/Player/player.tscn" id="3_pnp1i"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_8iceo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n45s"]
+albedo_color = Color(1.6197081, 1.6197081, 1.6197081, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0b2j"]
+panorama = ExtResource("1_7n45s")
+energy_multiplier = 4.0
+
+[sub_resource type="Sky" id="Sky_pnp1i"]
+sky_material = SubResource("PanoramaSkyMaterial_h0b2j")
+
+[sub_resource type="Environment" id="Environment_ohxaf"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_pnp1i")
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+glow_enabled = true
+glow_strength = 2.0
+glow_bloom = 0.05
+glow_blend_mode = 0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+volumetric_fog_sky_affect = 0.075
+
 [node name="Game" type="Node3D" unique_id=1074895714]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1477934039]
-environment = ExtResource("1_pnp1i")
+[node name="moonPivot" type="Node3D" parent="." unique_id=924020870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 500, 0)
+
+[node name="Moon" type="MeshInstance3D" parent="moonPivot" unique_id=48124612]
+transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 309.8703, 246.63202, 0)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_8iceo")
+surface_material_override/0 = SubResource("StandardMaterial3D_7n45s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1477934039 node_paths=PackedStringArray("moon_pivot")]
+environment = SubResource("Environment_ohxaf")
+script = ExtResource("2_7n45s")
+moon_pivot = NodePath("../moonPivot")
 
 [node name="GameManager" type="Node" parent="." unique_id=500077631]
 script = ExtResource("2_f5b4j")
@@ -17,3 +59,11 @@ script = ExtResource("2_f5b4j")
 
 [node name="Player" parent="." unique_id=1761557711 instance=ExtResource("3_pnp1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.014926, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1504416215]
+transform = Transform3D(-0.327615, 0.5502047, 0.76807773, 0.17461765, -0.76367795, 0.6215342, 0.9285349, 0.33774373, 0.15411678, 0, 591.45496, 0)
+light_color = Color(0.82227194, 0.97040194, 0.9999997, 1)
+light_energy = 0.1
+light_volumetric_fog_energy = 0.1
+light_angular_distance = 10.0
+shadow_enabled = true
