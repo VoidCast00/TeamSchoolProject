@@ -1,13 +1,13 @@
 [gd_resource type="Environment" format=3 uid="uid://b6cjf51anpj3t"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yxb0c"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.1296761, 0.022520501, 6.016344e-09, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://c64k1uha1ktsv" path="res://panorama_image (1).png" id="1_yxb0c"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ohxaf"]
+panorama = ExtResource("1_yxb0c")
+energy_multiplier = 3.0
 
 [sub_resource type="Sky" id="Sky_ohxaf"]
-sky_material = SubResource("ProceduralSkyMaterial_yxb0c")
+sky_material = SubResource("PanoramaSkyMaterial_ohxaf")
 
 [resource]
 background_mode = 2
@@ -17,7 +17,6 @@ ambient_light_color = Color(0.05, 0.055, 0.07, 1)
 ambient_light_energy = 0.15
 reflected_light_source = 1
 tonemap_mode = 3
-fog_enabled = true
 fog_light_color = Color(0.01, 0.01, 0.012, 1)
 fog_density = 0.09
 volumetric_fog_enabled = true
