@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://cluxsx1ap4rmu"]
 
-[ext_resource type="Texture2D" uid="uid://8flm7n42bvja" path="res://skyboxes/panorama_image (2).png" id="1_7n45s"]
+[ext_resource type="Texture2D" uid="uid://8flm7n42bvja" path="res://skyboxes/panorama_image (2).png" id="1_d4olb"]
 [ext_resource type="Script" uid="uid://dk0mdv66ebcoq" path="res://Entities/World/world_environment.gd" id="2_7n45s"]
 [ext_resource type="Script" uid="uid://hw14pc08mjki" path="res://Entities/World/game_manager.gd" id="2_f5b4j"]
 [ext_resource type="PackedScene" uid="uid://c4qiva2hqxqvh" path="res://Entities/Maze/maze.tscn" id="3_2vbg6"]
 [ext_resource type="PackedScene" uid="uid://bmf78bkynhn7t" path="res://Entities/Player/player.tscn" id="3_pnp1i"]
 [ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="6_yk2rw"]
-[ext_resource type="Texture2D" uid="uid://b73h4i27tttwj" path="res://3dToolsTextures/gltf/cutter01_matsimple.png" id="7_5lm8k"]
-[ext_resource type="PackedScene" uid="uid://citgjdudfxt8n" path="res://3dToolsTextures/gltf/cutter01.gltf" id="8_d4olb"]
-[ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="9_umemc"]
-[ext_resource type="Resource" path="res://resources/tools/LightStick.tres" id="10_lstick"]
+[ext_resource type="Resource" uid="uid://bp505h7c2spk8" path="res://resources/tools/Cutter.tres" id="7_pgfo6"]
+[ext_resource type="Resource" uid="uid://d0l6qogrvw04e" path="res://resources/tools/Hammer.tres" id="8_pgfo6"]
+[ext_resource type="Resource" uid="uid://dx8rj4w0i3ll7" path="res://resources/tools/Battery.tres" id="9_5lm8k"]
+[ext_resource type="Resource" uid="uid://cx5uqbnj3e6fg" path="res://resources/tools/glowstick.tres" id="10_d4olb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8iceo"]
 
@@ -20,7 +20,7 @@ emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 5.0
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0b2j"]
-panorama = ExtResource("1_7n45s")
+panorama = ExtResource("1_d4olb")
 energy_multiplier = 4.0
 
 [sub_resource type="Sky" id="Sky_pnp1i"]
@@ -40,13 +40,6 @@ glow_blend_mode = 0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.03
 volumetric_fog_sky_affect = 0.075
-
-[sub_resource type="Resource" id="Resource_7rqnx"]
-script = ExtResource("9_umemc")
-ItemName = "Cutter"
-icon = ExtResource("7_5lm8k")
-meshScene = ExtResource("8_d4olb")
-metadata/_custom_type_script = "uid://ey1p1ft7pgdv"
 
 [node name="Game" type="Node3D" unique_id=1074895714]
 
@@ -85,9 +78,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.014926, 0)
 collision_mask = 14
 
 [node name="Interactables" parent="." unique_id=325103204 instance=ExtResource("6_yk2rw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 70.43419, 0)
-itemData = SubResource("Resource_7rqnx")
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 7.169037, 0)
+itemData = ExtResource("7_pgfo6")
 
-[node name="LightStickPickup" parent="." unique_id=1502938471 instance=ExtResource("6_yk2rw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 70.43419, 0)
-itemData = ExtResource("10_lstick")
+[node name="Interactables2" parent="." unique_id=1722612977 instance=ExtResource("6_yk2rw")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 7, 0)
+itemData = ExtResource("8_pgfo6")
+
+[node name="Interactables3" parent="." unique_id=1010650614 instance=ExtResource("6_yk2rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+itemData = ExtResource("9_5lm8k")
+
+[node name="Interactables4" parent="." unique_id=569655761 instance=ExtResource("6_yk2rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+itemData = ExtResource("10_d4olb")

@@ -29,6 +29,7 @@ var _was_on_floor := false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Inventory.item_drop.connect(drop_from_player)
 
 
 func _input(event: InputEvent) -> void:
@@ -146,3 +147,8 @@ func _accelerate(wish_dir: Vector3, wish_speed: float, accel: float, delta: floa
 	accel_speed = min(accel_speed, add_speed)
 	velocity.x += accel_speed * wish_dir.x
 	velocity.z += accel_speed * wish_dir.z
+
+func drop_from_player(item):
+	var forward = -transform.basis.z.normalized()
+	var drop_pos = global_position + forward * 2.0
+	item.global_position = drop_pos

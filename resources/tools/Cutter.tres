@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bp505h7c2spk8"]
 
-[ext_resource type="Texture2D" uid="uid://b73h4i27tttwj" path="res://3dToolsTextures/gltf/cutter01_matsimple.png" id="1_5t4v0"]
+[ext_resource type="Texture2D" uid="uid://byxplx08ylk0c" path="res://usedItems/cutter/cutter.PNG" id="1_5t4v0"]
+[ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="2_4xsh1"]
 [ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="2_5t4v0"]
-[ext_resource type="PackedScene" uid="uid://citgjdudfxt8n" path="res://3dToolsTextures/gltf/cutter01.gltf" id="2_dh6bg"]
+[ext_resource type="PackedScene" uid="uid://cxcb0btjq8xf" path="res://usedItems/cutter/cutter01.gltf" id="2_dh6bg"]
 
 [resource]
 script = ExtResource("2_5t4v0")
 ItemName = "Cutter"
 icon = ExtResource("1_5t4v0")
 meshScene = ExtResource("2_dh6bg")
+scale = 7.5
 metadata/_custom_type_script = "uid://ey1p1ft7pgdv"

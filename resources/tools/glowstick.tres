@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cx5uqbnj3e6fg"]
+
+[ext_resource type="Texture2D" uid="uid://vw2vsp820dtx" path="res://usedItems/glowstick/glowstick.PNG" id="1_e7ls5"]
+[ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="1_yxn5a"]
+[ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="2_lbr8d"]
+[ext_resource type="PackedScene" uid="uid://eb3ikt4tx5ke" path="res://usedItems/glowstick/light_stick.tscn" id="3_b7wmg"]
+
+[resource]
+script = ExtResource("2_lbr8d")
+ItemName = "Glowstick"
+icon = ExtResource("1_e7ls5")
+meshScene = ExtResource("3_b7wmg")
+scale = 1.0
+metadata/_custom_type_script = "uid://ey1p1ft7pgdv"

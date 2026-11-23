@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dx8rj4w0i3ll7"]
+
+[ext_resource type="Texture2D" uid="uid://cvu25iv42m60r" path="res://usedItems/battery/batreyture.PNG" id="1_e4x3x"]
+[ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="1_f48x4"]
+[ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="2_ccqms"]
+[ext_resource type="PackedScene" uid="uid://bpdvjlwve4otr" path="res://usedItems/battery/flash_light.tscn" id="3_e4x3x"]
+
+[resource]
+script = ExtResource("2_ccqms")
+ItemName = "Battery"
+icon = ExtResource("1_e4x3x")
+meshScene = ExtResource("3_e4x3x")
+scale = 0.2
+metadata/_custom_type_script = "uid://ey1p1ft7pgdv"

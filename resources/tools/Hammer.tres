@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d0l6qogrvw04e"]
 
-[ext_resource type="Texture2D" uid="uid://dp1c0f3lo6771" path="res://3dToolsTextures/gltf/hammer03_matsimple.png" id="1_hnxqf"]
+[ext_resource type="Texture2D" uid="uid://cnv52cemjflus" path="res://usedItems/hammer/hammer.PNG" id="1_hnxqf"]
 [ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="1_w63qa"]
-[ext_resource type="PackedScene" uid="uid://stfqw2y68xml" path="res://3dToolsTextures/gltf/hammer03.gltf" id="2_32t7o"]
+[ext_resource type="PackedScene" uid="uid://de86wv272gnve" path="res://usedItems/hammer/hammer03.gltf" id="2_32t7o"]
+[ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="2_kfxni"]
 
 [resource]
 script = ExtResource("1_w63qa")
 ItemName = "Hammer"
 icon = ExtResource("1_hnxqf")
 meshScene = ExtResource("2_32t7o")
+scale = 3.5
 metadata/_custom_type_script = "uid://ey1p1ft7pgdv"

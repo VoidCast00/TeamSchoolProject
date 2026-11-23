@@ -1,10 +1,12 @@
 extends RigidBody3D
+@export var interactables: RigidBody3D
 
 @onready var mesh_instance_node = $MeshInstance3D
 @export var itemData: Resource
 
 func _ready() -> void:
 	name = itemData.ItemName
+	Globals.curItemName = name
 	spawn_item_with_collision(itemData.meshScene)
 func interact():
 	if Inventory.add_item(itemData):
@@ -32,6 +34,8 @@ func spawn_item_with_collision(scene) -> Node3D:
 		col_shape.shape = mesh_instance.mesh.create_convex_shape()
 		# match the mesh's offset/rotation inside the item scene
 		col_shape.transform = global_transform.affine_inverse() * mesh_instance.global_transform
+		interactables.scale = Vector3(itemData.scale,itemData.scale,itemData.scale)
+		
 		add_child(col_shape)
 	else:
 		push_warning("%s: no MeshInstance3D found in meshScene, no collision created" % name)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cosvolw7c1dwf" path="res://Entities/Player/player.gd" id="1_mv1ah"]
 [ext_resource type="Script" uid="uid://orr8o44e88xw" path="res://Entities/Player/camera.gd" id="2_3uyv8"]
+[ext_resource type="Script" uid="uid://cgrkhnj6y41po" path="res://Entities/Player/view_model.gd" id="3_lu8i8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aygq"]
 
@@ -28,6 +29,7 @@ target_position = Vector3(0, 0, -3)
 collision_mask = 4
 
 [node name="Flashlight" type="Node3D" parent="Neck/Camera3D" unique_id=1290756780]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera3D/Flashlight" unique_id=768963645 node_paths=PackedStringArray("spot_light_3d")]
 transform = Transform3D(0.98456854, -0.17499958, 0, 0.17499958, 0.98456854, 0, 0, 0, 1, 0, 0, 0)
@@ -42,3 +44,7 @@ spot_angle = 40.0
 spot_angle_attenuation = 4.0
 script = ExtResource("2_3uyv8")
 spot_light_3d = NodePath(".")
+
+[node name="viewModel" type="Node3D" parent="Neck/Camera3D" unique_id=1656959310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68807244, -0.57999647, -0.46131623)
+script = ExtResource("3_lu8i8")

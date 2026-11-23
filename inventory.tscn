@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://1gcxw2nr4di6" path="res://slot.tscn" id="1_fkxp6"]
 [ext_resource type="Script" uid="uid://ddsf18l3u8ofv" path="res://inventory.gd" id="1_psafj"]
 [ext_resource type="Script" uid="uid://cyhtliprrkh30" path="res://hotbar.gd" id="2_5tt2m"]
+[ext_resource type="Script" uid="uid://b3t555siuhcgc" path="res://label.gd" id="4_mrqgh"]
+[ext_resource type="Texture2D" uid="uid://0nx15vfp044b" path="res://crosshair-000.png" id="5_dw5ng"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_5tt2m"]
 device = -1
@@ -81,3 +83,53 @@ shortcut = SubResource("Shortcut_ho8i8")
 [node name="5" parent="Ui/Hotbar" unique_id=1219817584 instance=ExtResource("1_fkxp6")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_a8ig1")
+
+[node name="Label" type="Label" parent="Ui" unique_id=1756766013 node_paths=PackedStringArray("label")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -280.0
+offset_right = 150.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_mrqgh")
+label = NodePath(".")
+
+[node name="crosshair" type="Control" parent="." unique_id=1833554617]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="texture" type="TextureRect" parent="crosshair" unique_id=848246885]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -37.0
+offset_right = 37.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_dw5ng")
