@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cluxsx1ap4rmu"]
 
-[ext_resource type="Texture2D" uid="uid://cjpdlwme0p2ht" path="res://panorama_image (2).png" id="1_7n45s"]
+[ext_resource type="Texture2D" uid="uid://8flm7n42bvja" path="res://skyboxes/panorama_image (2).png" id="1_7n45s"]
 [ext_resource type="Script" uid="uid://dk0mdv66ebcoq" path="res://Entities/World/world_environment.gd" id="2_7n45s"]
 [ext_resource type="Script" uid="uid://hw14pc08mjki" path="res://Entities/World/game_manager.gd" id="2_f5b4j"]
 [ext_resource type="PackedScene" uid="uid://c4qiva2hqxqvh" path="res://Entities/Maze/maze.tscn" id="3_2vbg6"]
 [ext_resource type="PackedScene" uid="uid://bmf78bkynhn7t" path="res://Entities/Player/player.tscn" id="3_pnp1i"]
+[ext_resource type="PackedScene" uid="uid://tdo66p43qsls" path="res://interactables.tscn" id="6_yk2rw"]
+[ext_resource type="Texture2D" uid="uid://b73h4i27tttwj" path="res://3dToolsTextures/gltf/cutter01_matsimple.png" id="7_5lm8k"]
+[ext_resource type="PackedScene" uid="uid://citgjdudfxt8n" path="res://3dToolsTextures/gltf/cutter01.gltf" id="8_d4olb"]
+[ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="9_umemc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8iceo"]
 
@@ -36,6 +40,13 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.03
 volumetric_fog_sky_affect = 0.075
 
+[sub_resource type="Resource" id="Resource_7rqnx"]
+script = ExtResource("9_umemc")
+ItemName = "Cutter"
+icon = ExtResource("7_5lm8k")
+meshScene = ExtResource("8_d4olb")
+metadata/_custom_type_script = "uid://ey1p1ft7pgdv"
+
 [node name="Game" type="Node3D" unique_id=1074895714]
 
 [node name="moonPivot" type="Node3D" parent="." unique_id=924020870]
@@ -47,23 +58,31 @@ cast_shadow = 0
 mesh = SubResource("SphereMesh_8iceo")
 surface_material_override/0 = SubResource("StandardMaterial3D_7n45s")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1477934039 node_paths=PackedStringArray("moon_pivot")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1477934039 node_paths=PackedStringArray("moonlight", "moon_pivot")]
 environment = SubResource("Environment_ohxaf")
 script = ExtResource("2_7n45s")
+moonlight = NodePath("../moonlight")
 moon_pivot = NodePath("../moonPivot")
 
-[node name="GameManager" type="Node" parent="." unique_id=500077631]
-script = ExtResource("2_f5b4j")
-
-[node name="Maze" parent="." unique_id=1304220717 instance=ExtResource("3_2vbg6")]
-
-[node name="Player" parent="." unique_id=1761557711 instance=ExtResource("3_pnp1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.014926, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1504416215]
-transform = Transform3D(-0.327615, 0.5502047, 0.76807773, 0.17461765, -0.76367795, 0.6215342, 0.9285349, 0.33774373, 0.15411678, 0, 591.45496, 0)
+[node name="moonlight" type="DirectionalLight3D" parent="." unique_id=1504416215]
+transform = Transform3D(-0.327615, 0.55020463, 0.76807773, 0.17461765, -0.76367795, 0.62153417, 0.9285349, 0.33774385, 0.15411691, 0, 591.45496, 0)
 light_color = Color(0.82227194, 0.97040194, 0.9999997, 1)
 light_energy = 0.1
 light_volumetric_fog_energy = 0.1
 light_angular_distance = 10.0
 shadow_enabled = true
+
+[node name="GameManager" type="Node" parent="." unique_id=500077631]
+script = ExtResource("2_f5b4j")
+
+[node name="Maze" parent="." unique_id=1304220717 instance=ExtResource("3_2vbg6")]
+collision_layer = 8
+collision_mask = 7
+
+[node name="Player" parent="." unique_id=1761557711 instance=ExtResource("3_pnp1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.014926, 0)
+collision_mask = 14
+
+[node name="Interactables" parent="." unique_id=325103204 instance=ExtResource("6_yk2rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 70.43419, 0)
+itemData = SubResource("Resource_7rqnx")

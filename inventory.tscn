@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bi77rvwndjlax"]
+
+[ext_resource type="PackedScene" uid="uid://1gcxw2nr4di6" path="res://slot.tscn" id="1_fkxp6"]
+[ext_resource type="Script" uid="uid://ddsf18l3u8ofv" path="res://inventory.gd" id="1_psafj"]
+[ext_resource type="Script" uid="uid://cyhtliprrkh30" path="res://hotbar.gd" id="2_5tt2m"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5tt2m"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_5tt2m"]
+events = [SubResource("InputEventKey_5tt2m")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mrqgh"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_dw5ng"]
+events = [SubResource("InputEventKey_mrqgh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_dw5ng"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_qjyhv"]
+events = [SubResource("InputEventKey_dw5ng")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0xmy5"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_ho8i8"]
+events = [SubResource("InputEventKey_0xmy5")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_qjyhv"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_a8ig1"]
+events = [SubResource("InputEventKey_qjyhv")]
+
+[node name="Inventory" type="Node" unique_id=205148348]
+script = ExtResource("1_psafj")
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=884222541]
+
+[node name="Hotbar" type="HBoxContainer" parent="Ui" unique_id=273653404]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_5tt2m")
+
+[node name="1" parent="Ui/Hotbar" unique_id=983048676 instance=ExtResource("1_fkxp6")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_5tt2m")
+
+[node name="2" parent="Ui/Hotbar" unique_id=1248812708 instance=ExtResource("1_fkxp6")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_dw5ng")
+
+[node name="3" parent="Ui/Hotbar" unique_id=396220998 instance=ExtResource("1_fkxp6")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_qjyhv")
+
+[node name="4" parent="Ui/Hotbar" unique_id=2132856022 instance=ExtResource("1_fkxp6")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_ho8i8")
+
+[node name="5" parent="Ui/Hotbar" unique_id=1219817584 instance=ExtResource("1_fkxp6")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_a8ig1")
