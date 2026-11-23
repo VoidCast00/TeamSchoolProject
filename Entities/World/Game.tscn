@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b73h4i27tttwj" path="res://3dToolsTextures/gltf/cutter01_matsimple.png" id="7_5lm8k"]
 [ext_resource type="PackedScene" uid="uid://citgjdudfxt8n" path="res://3dToolsTextures/gltf/cutter01.gltf" id="8_d4olb"]
 [ext_resource type="Script" uid="uid://ey1p1ft7pgdv" path="res://resources/ItemData.gd" id="9_umemc"]
+[ext_resource type="Resource" path="res://resources/tools/LightStick.tres" id="10_lstick"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_8iceo"]
 
@@ -86,3 +87,7 @@ collision_mask = 14
 [node name="Interactables" parent="." unique_id=325103204 instance=ExtResource("6_yk2rw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 70.43419, 0)
 itemData = SubResource("Resource_7rqnx")
+
+[node name="LightStickPickup" parent="." unique_id=1502938471 instance=ExtResource("6_yk2rw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 70.43419, 0)
+itemData = ExtResource("10_lstick")

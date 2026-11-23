@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var neck: Node3D = $Neck
+@onready var interact_ray: RayCast3D = $Neck/Camera3D/InteractRay
 @export var SENS: float = 0.15
 
 # Ground movement
@@ -38,7 +39,13 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-(mouse_motion.x * sens))
 		neck.rotate_x(-(mouse_motion.y * sens))
 		neck.rotation.x = clamp(neck.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-	
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and interact_ray.is_colliding():
+		var target := interact_ray.get_collider()
+		if target and target.is_in_group("interactable") and target.has_method("interact"):
+			target.interact()
 
 
 func _physics_process(delta: float) -> void:

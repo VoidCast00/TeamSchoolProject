@@ -24,13 +24,15 @@ func find_first_mesh_instance(node: Node) -> MeshInstance3D:
 	
 func spawn_item_with_collision(scene) -> Node3D:
 	var inst = scene.instantiate()
-	
+	add_child(inst)
+
 	var mesh_instance = find_first_mesh_instance(inst)
 	if mesh_instance and mesh_instance.mesh:
-		var shape = mesh_instance.mesh.create_convex_shape()
 		var col_shape = CollisionShape3D.new()
-		col_shape.shape = shape
-		
-		self.add_child(inst)
-		self.add_child(col_shape)
+		col_shape.shape = mesh_instance.mesh.create_convex_shape()
+		# match the mesh's offset/rotation inside the item scene
+		col_shape.transform = global_transform.affine_inverse() * mesh_instance.global_transform
+		add_child(col_shape)
+	else:
+		push_warning("%s: no MeshInstance3D found in meshScene, no collision created" % name)
 	return inst
