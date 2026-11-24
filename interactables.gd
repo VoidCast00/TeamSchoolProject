@@ -6,8 +6,8 @@ extends RigidBody3D
 
 func _ready() -> void:
 	name = itemData.ItemName
-	Globals.curItemName = name
 	spawn_item_with_collision(itemData.meshScene)
+	
 func interact():
 	if Inventory.add_item(itemData):
 		call_deferred("queue_free")

@@ -1,4 +1,5 @@
 extends HBoxContainer
+@export var curSlot: StyleBoxFlat
 
 var slots: Array
 
@@ -20,5 +21,5 @@ func _update_inventory():
 
 func _highlight_slot(slot_index: int):
 	for i in range(5):
-		slots[i].modulate = Color(1,1,1)
+		slots[i].modulate = Color(0.5,0.5,0.5)
 	slots[slot_index].modulate = Color(1.5,1.5,1.5)

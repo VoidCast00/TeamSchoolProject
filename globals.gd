@@ -1,4 +1,4 @@
 extends Node
 class_name Global
 
-var curItemName: String = " "
+var curItemName: String = ""

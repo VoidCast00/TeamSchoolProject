@@ -2,6 +2,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ex6o"]
 bg_color = Color(0.41674656, 0.4167466, 0.41674656, 0.5882353)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 
 [node name="slot" type="TextureButton" unique_id=983048676]
 custom_minimum_size = Vector2(120, 120)

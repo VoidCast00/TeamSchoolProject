@@ -19,9 +19,10 @@ func show_item(item_data: ItemData):
 		current_item_instance.scale = Vector3(item_data.scale,item_data.scale,item_data.scale)
 		if item_data.ItemName:
 			Globals.curItemName = str(item_data.ItemName)
-		else:
-			Globals.curItemName = " "
-		add_child(current_item_instance)
+	else:
+		Globals.curItemName = " "
+		
+	add_child(current_item_instance)
  
 func _update_held_item(slot_index: int):
 	var item = Inventory.inventory[slot_index]
